@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Linkage Manager
- * Plugin URI: 
+ * Plugin URI:
  * Description: A plugin to create and manage Linkages with custom fields and shortcodes.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Samuel Marcello
- * Author URI: 
+ * Author URI:
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: linkage-manager
@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'LINKAGE_MANAGER_VERSION', '1.0.0' );
+define( 'LINKAGE_MANAGER_VERSION', '1.0.1' );
 define( 'LINKAGE_MANAGER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LINKAGE_MANAGER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -31,7 +31,7 @@ function activate_linkage_manager() {
     require_once LINKAGE_MANAGER_PLUGIN_DIR . 'includes/class-linkage-post-type.php';
     $plugin_post_type = new Linkage_Post_Type();
     $plugin_post_type->register_post_type();
-    
+
     // Clear the permalinks after the post type has been registered.
     flush_rewrite_rules();
 }
@@ -42,7 +42,7 @@ function activate_linkage_manager() {
 function deactivate_linkage_manager() {
     // Unregister the post type, so the rules are no longer in memory.
     unregister_post_type( 'linkage' );
-    
+
     // Clear the permalinks to remove our post type's rules from the database.
     flush_rewrite_rules();
 }
@@ -64,3 +64,16 @@ function run_linkage_manager() {
     $plugin->run();
 }
 run_linkage_manager();
+
+/**
+ * Initialize Elementor integration.
+ */
+function init_linkage_elementor() {
+    // Check if Elementor is installed and activated
+    if ( did_action( 'elementor/loaded' ) ) {
+        // Include Elementor integration
+        require_once LINKAGE_MANAGER_PLUGIN_DIR . 'elementor/class-linkage-elementor.php';
+        new Linkage_Elementor();
+    }
+}
+add_action( 'plugins_loaded', 'init_linkage_elementor' );

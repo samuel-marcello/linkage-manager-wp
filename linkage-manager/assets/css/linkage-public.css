@@ -1,5 +1,7 @@
 /**
  * Public styles for Linkage Manager
+ *
+ * Version: 1.0.1 - Added Elementor compatibility
  */
 
 /* Linkage List - Grid Layout */
@@ -170,4 +172,70 @@
     background: #f8f8f8;
     border-left: 4px solid #dc3232;
     margin-bottom: 30px;
+}
+
+/* Elementor Compatibility Styles */
+.linkage-manager-shortcode-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix for Elementor editor */
+.elementor-widget-container .linkage-manager-shortcode-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure our styles take precedence in Elementor */
+.elementor-widget-container .linkage-list-container,
+.elementor-widget-container .linkage-detail-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix for Elementor column issues */
+.elementor-widget-container .linkage-layout-grid .linkage-item {
+    float: left;
+}
+
+/* Clear floats */
+.elementor-widget-container .linkage-list-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Elementor widget placeholders */
+.elementor-linkage-list-placeholder,
+.elementor-linkage-detail-placeholder {
+    padding: 20px;
+    background: #f5f5f5;
+    border: 1px dashed #ddd;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Fix for Elementor theme styles that might interfere */
+.elementor-widget-container .linkage-item,
+.elementor-widget-container .linkage-detail-container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 5px !important;
+}
+
+/* Ensure our buttons look consistent in Elementor */
+.elementor-widget-container .linkage-details-button .button {
+    display: inline-block !important;
+    padding: 8px 15px !important;
+    background: #0073aa !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 3px !important;
+    font-size: 14px !important;
+    transition: background 0.3s ease !important;
+    line-height: 1.5 !important;
+    border: none !important;
+}
+
+.elementor-widget-container .linkage-details-button .button:hover {
+    background: #005177 !important;
 }
