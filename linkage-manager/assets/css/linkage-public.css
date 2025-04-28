@@ -1,0 +1,173 @@
+/**
+ * Public styles for Linkage Manager
+ */
+
+/* Linkage List - Grid Layout */
+.linkage-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.linkage-layout-grid .linkage-item {
+    padding: 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.linkage-layout-grid.linkage-columns-2 .linkage-item {
+    width: 50%;
+}
+
+.linkage-layout-grid.linkage-columns-3 .linkage-item {
+    width: 33.333%;
+}
+
+.linkage-layout-grid.linkage-columns-4 .linkage-item {
+    width: 25%;
+}
+
+@media (max-width: 768px) {
+    .linkage-layout-grid .linkage-item {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .linkage-layout-grid .linkage-item {
+        width: 100% !important;
+    }
+}
+
+/* Linkage List - List Layout */
+.linkage-layout-list .linkage-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.linkage-layout-list .linkage-logo {
+    flex: 0 0 80px;
+    margin-right: 20px;
+}
+
+.linkage-layout-list .linkage-title {
+    flex: 1;
+    margin: 0;
+}
+
+.linkage-layout-list .linkage-category-label {
+    flex: 0 0 100px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.linkage-layout-list .linkage-details-button {
+    flex: 0 0 120px;
+    text-align: right;
+}
+
+/* Common Styles */
+.linkage-item {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.linkage-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.linkage-logo {
+    margin-bottom: 15px;
+}
+
+.linkage-logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.linkage-title {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.linkage-category-label {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.linkage-category-public .linkage-category-label {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.linkage-category-private .linkage-category-label {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.linkage-details-button .button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #0073aa;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.linkage-details-button .button:hover {
+    background: #005177;
+}
+
+/* Linkage Detail Page */
+.linkage-detail-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.linkage-detail-container .linkage-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.linkage-detail-container .linkage-logo {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.linkage-detail-container .linkage-logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.linkage-detail-container .linkage-description {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.linkage-not-found {
+    padding: 30px;
+    background: #f8f8f8;
+    border-left: 4px solid #dc3232;
+    margin-bottom: 30px;
+}
